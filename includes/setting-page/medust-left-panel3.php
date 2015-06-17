@@ -36,6 +36,15 @@
 							cols="18" rows="1"><?php echo get_option('as_facebook_pg_widget_height'); ?></textarea></td>
 				</tr>
                 <tr valign="top">
+					<th scope="row"><label>Small Header?</label></th>
+					<td><input name="as_facebook_pg_widget_small_header" type="radio" value="true"
+						<?php checked('true', $as_facebook_pg_widget_small_header); ?> /> &nbsp;YES (default) <input
+						name="as_facebook_pg_widget_small_header" type="radio" value="false"
+						<?php checked('false', $as_facebook_pg_widget_small_header); ?> />
+                    &nbsp;NO
+                    &nbsp;<?=$fb_showsmheader?>
+                </td>
+                <tr valign="top">
 					<th scope="row"><label>Hide Cover?</label></th>
 					<td><input name="as_facebook_pg_widget_header" type="radio" value="true"
 						<?php checked('true', $as_facebook_pg_widget_header); ?> /> &nbsp;YES <input
@@ -66,15 +75,6 @@
 						type="radio" value="false"
 						<?php checked('false', $as_facebook_pg_widget_faces); ?> />
 						&nbsp;NO</td>
-				</tr>
-				<tr valign="top">
-					<th scope="row"><label>Background Color</label></th>
-
-					<td><textarea id="styled"
-							name="as_facebook_pg_widget_color_scheme" cols="18" rows="1"><?php echo get_option('as_facebook_pg_widget_color_scheme'); ?></textarea>
-						<br> Keep it blank for transparent background <br> <a
-						href="http://www.w3schools.com/html/html_colors.asp"
-						target="_blank">Color Codes (Do not put #)</a></td>
 				</tr>
 				<tr valign="top" class="alternate">
 					<th scope="row" style="width: 29%;"><label>Border Color</label></th>

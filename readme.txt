@@ -3,11 +3,11 @@ Contributors: medust
 Tags: Facebook, Facebook Page Plugin, Facebook Like Box, Facebook Widget, Facebook Page, Social Media, Like box, Facebook, Plugin, Facebook Plugin, Facebook Recommendation bar, Recommendation, medust, medust.com
 Requires at least: 3.7
 Tested up to: 4.2.2
-Stable tag: 1.0
+Stable tag: 1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-The Simplest way to bring New Facebook Page Plugin + Facebook Recommendation Bar functionality to WordPress with lot more Options.
+The Simplest way to bring Facebook Page (New LikeBox by Facebook) with Graph API v2.3 functionality to WordPress with lot more Options.
 
 == Description ==
 This is a Facebook Page plugin for WordPress to attach new Facebook Page Plugin with your blog. This plugin is compatible with WordPress version 4.2.2 and the plugin created with Graph API v2.3
@@ -73,10 +73,17 @@ Tags: facebook, facebook page, FB page, facebook plugin, page plugin, FB page pl
 
 == Changelog ==
 
+= 1.1 =
+* New Small Header Feature Added to the plugin.
+* Background color field deleted.
+
 = 1.0 =
 * As this is the first version of this package, so there is no change.
 
 == Upgrade Notice ==
+
+= 1.1 =
+New Small Header Feature from Facebook is added to the plugin.
 
 = 1.0 =
 Please let us know if you find any bug in this we'll try our best to fix it.

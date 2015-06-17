@@ -43,3 +43,7 @@ jQuery(function() {
 jQuery(function() {
 	jQuery('#east9').powerTip({placement: 'n'});
 });
+
+jQuery(function() {
+	jQuery('#east10').powerTip({placement: 'n'});
+});

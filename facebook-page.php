@@ -2,10 +2,10 @@
 /*
 Plugin Name: Facebook Page
 Plugin URI: http://Medust.com/
-Description: THE Simplest way to bring Facebook LikeBox + Facebook Recommendation Bar functionality to WordPress with lot more Options.
-Version: 1.0
+Description: The Simplest way to bring Facebook Page (New LikeBox by Facebook) functionality to WordPress with lot more Options. This plugin is based on Graph API v2.3
+Version: 1.1
 Author: Medust
-Author URI: http://Medust.com
+Author URI: http://www.medust.com
 */
 
 /*
@@ -31,8 +31,9 @@ Author URI: http://Medust.com
 add_option('as_facebook_pg_page_name', 'wordpress');
 add_option('as_facebook_pg_width', '282');
 add_option('as_facebook_pg_broder_color', '');
-add_option('as_facebook_pg_color_scheme', 'FFFFF');
+//add_option('as_facebook_pg_color_scheme', 'FFFFFF');
 add_option('as_facebook_pg_height', '255');
+add_option('as_facebook_pg_small_header', 'true');
 add_option('as_facebook_pg_stream', 'false');
 add_option('as_facebook_pg_header', 'false');
 add_option('as_facebook_pg_faces', 'true');
@@ -41,8 +42,9 @@ add_option('as_facebook_pg_widget_page_name', 'wordpress');
 add_option('as_facebook_pg_widget_title', 'Like Box');
 add_option('as_facebook_pg_widget_width', '282');
 add_option('as_facebook_pg_widget_border_color', '');
-add_option('as_facebook_pg_widget_color_scheme', 'FFFFFF');
+//add_option('as_facebook_pg_widget_color_scheme', 'FFFFFF');
 add_option('as_facebook_pg_widget_height', '255');
+add_option('as_facebook_pg_widget_small_header', 'true');
 add_option('as_facebook_pg_widget_stream', 'false');
 add_option('as_facebook_pg_widget_header', 'false');
 add_option('as_facebook_pg_widget_faces', 'true');
@@ -53,7 +55,7 @@ add_option('as_facebook_pg_reco_appid', '');
 add_option('as_facebook_pg_reco_readtime', '5');
 add_option('as_facebook_pg_reco_verb', 'like');
 add_option('as_facebook_pg_reco_side', 'left');
-add_option('as_facebook_pg_reco_domain', 'http://Medust.com');
+add_option('as_facebook_pg_reco_domain', 'http://www.medust.com');
 
 function filter_as_facebook_pg_likebox($content)
 {
@@ -103,8 +105,9 @@ function as_facebook_pg_likebox()
     $fm_width = get_option('as_facebook_pg_width');
     $fm_height = get_option('as_facebook_pg_height');
     $fm_broder_color = get_option('as_facebook_pg_broder_color');
+	$fm_small_header = get_option('as_facebook_pg_small_header');
     $fm_stream = get_option('as_facebook_pg_stream');
-    $fm_color_scheme = get_option('as_facebook_pg_color_scheme');
+    //$fm_color_scheme = get_option('as_facebook_pg_color_scheme');
     $fm_header = get_option('as_facebook_pg_header');
     $fm_faces = get_option('as_facebook_pg_faces');
 
@@ -122,12 +125,10 @@ function as_facebook_pg_likebox()
     if ($show_sponser1 == 1) {
         $sponserlink_profile = "";
     } else {
-        $sponserlink_profile = '<div align="center">- <a href="http://Medust.com/" title="Facebook Page WordPress Plugin" target="_blank"> <font size="1">' . 'Facebook Page WordPress Plugin' . '</font></a></div>';
+        $sponserlink_profile = '<div align="center">- <a href="http://www.medust.com/" title="Facebook Page WordPress Plugin" target="_blank"> <font size="1">' . 'Facebook Page WordPress Plugin' . '</font></a></div>';
     }
 
-
-    //$T1 = '<iframe src="//www.facebook.com/plugins/likebox.php?href=https%3A%2F%2Fwww.facebook.com%2F' . $fm_pagename . '&amp;width=' . $fm_width . '&amp;height=' . $fm_height . '&amp;colorscheme=light&amp;show_faces=' . $fm_faces . '&amp;stream=' . $fm_stream . '&amp;show_border=false&amp;header=' . $fm_header . '" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:' . $fm_width . 'px; height:' . $fm_height . 'px; margin:-1px;" allowTransparency="true"></iframe>';
-	$T1 = '<div class="fb-page" data-href="https://www.facebook.com/' . $fm_pagename . '" data-width="' . $fm_width . '" data-height="' . $fm_height . '" data-hide-cover="' . $fm_header . '" data-show-facepile="' . $fm_faces . '" data-show-posts="' . $fm_stream . '"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/' . $fm_pagename . '"><a href="https://www.facebook.com/' . $fm_pagename . '">Facebook</a></blockquote></div></div>';
+	$T1 = '<div class="fb-page" data-href="https://www.facebook.com/' . $fm_pagename . '" data-width="' . $fm_width . '" data-height="' . $fm_height . '" data-small-header="' . $fm_small_header .'" data-adapt-container-width="true" data-hide-cover="' . $fm_header . '" data-show-facepile="' . $fm_faces . '" data-show-posts="' . $fm_stream . '"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/' . $fm_pagename . '"><a href="https://www.facebook.com/' . $fm_pagename . '">Facebook Page Plugin</a></blockquote></div></div>';
     $border_end = '</div>';
 
     $output = $border_start . $T1 . $border_end;
@@ -147,10 +148,11 @@ function as_facebook_pg_add_option_page()
 
 function as_facebook_pg_options_page()
 {
-
+	$as_facebook_pg_small_header = $_POST['as_facebook_pg_small_header'];
     $as_facebook_pg_stream = $_POST['as_facebook_pg_stream'];
     $as_facebook_pg_header = $_POST['as_facebook_pg_header'];
     $as_facebook_pg_faces = $_POST['as_facebook_pg_faces'];
+	$as_facebook_pg_widget_small_header = $_POST['as_facebook_pg_widget_small_header'];
     $as_facebook_pg_widget_stream = $_POST['as_facebook_pg_widget_stream'];
 	$as_facebook_pg_widget_header = $_POST['as_facebook_pg_widget_header'];
     $as_facebook_pg_widget_faces = $_POST['as_facebook_pg_widget_faces'];
@@ -179,24 +181,28 @@ function as_facebook_pg_options_page()
         update_option('as_facebook_pg_widget_title', (string)$_POST['as_facebook_pg_widget_title']);
         update_option('as_facebook_pg_widget_width', (string)$_POST['as_facebook_pg_widget_width']);
         update_option('as_facebook_pg_widget_height', (string)$_POST['as_facebook_pg_widget_height']);
+		update_option('as_facebook_pg_widget_small_header', (string)$_POST['as_facebook_pg_widget_small_header']);
         update_option('as_facebook_pg_widget_stream', (string)$_POST['as_facebook_pg_widget_stream']);
 		update_option('as_facebook_pg_widget_header', (string)$_POST['as_facebook_pg_widget_header']);
-        update_option('as_facebook_pg_widget_color_scheme', (string)$_POST['as_facebook_pg_widget_color_scheme']);
+        //update_option('as_facebook_pg_widget_color_scheme', (string)$_POST['as_facebook_pg_widget_color_scheme']);
         update_option('as_facebook_pg_widget_faces', (string)$_POST['as_facebook_pg_widget_faces']);
         update_option('as_facebook_pg_widget_no_connection', (string)$_POST['as_facebook_pg_widget_no_connection']);
         update_option('as_facebook_pg_widget_border_color', (string)$_POST['as_facebook_pg_widget_border_color']);
-
+		
+		update_option('as_facebook_pg_small_header', (string)$_POST['as_facebook_pg_small_header']);
         update_option('as_facebook_pg_stream', (string)$_POST['as_facebook_pg_stream']);
-        update_option('as_facebook_pg_color_scheme', (string)$_POST['as_facebook_pg_color_scheme']);
+        //update_option('as_facebook_pg_color_scheme', (string)$_POST['as_facebook_pg_color_scheme']);
         update_option('as_facebook_pg_header', (string)$_POST['as_facebook_pg_header']);
         update_option('as_facebook_pg_faces', (string)$_POST['as_facebook_pg_faces']);
 
         echo '<div id="message" class="updated fade"><p><strong>Settings saved.</strong></p></div>';
         echo '</strong>';
     } else {
+		$as_facebook_pg_small_header = get_option('as_facebook_pg_small_header');
         $as_facebook_pg_stream = get_option('as_facebook_pg_stream');
         $as_facebook_pg_header = get_option('as_facebook_pg_header');
         $as_facebook_pg_faces = get_option('as_facebook_pg_faces');
+		$as_facebook_pg_widget_small_header = get_option('as_facebook_pg_widget_small_header');
         $as_facebook_pg_widget_stream = get_option('as_facebook_pg_widget_stream');
 		$as_facebook_pg_widget_header = get_option('as_facebook_pg_widget_header');
         $as_facebook_pg_widget_faces = get_option('as_facebook_pg_widget_faces');
@@ -220,6 +226,8 @@ function as_facebook_pg_options_page()
     $fb_showheader = '<img border="0" id="east4" value="Tip" title="If the Hide Cover radio button is set to No (the default), <br>Cover photo of Facebook Page will be displayed on the box." src="' . $icon_url . '/wp-content/plugins/facebook-page/images/tip.png" /> ';
 	
 	$fb_showheader1 = '<img border="0" id="east9" value="Tip" title="If the Hide Cover radio button is set to No (the default), <br>Cover photo of Facebook Page will be displayed on the box." src="' . $icon_url . '/wp-content/plugins/facebook-page/images/tip.png" /> ';
+	
+	$fb_showsmheader = '<img border="0" id="east10" value="Tip" title="If the Small Header radio button is set to Yes (the default), <br>Header section of Facebook Page Plugin will display a small header." src="' . $icon_url . '/wp-content/plugins/facebook-page/images/tip.png" /> ';
     ?>
 
 <?php
@@ -238,9 +246,10 @@ function show_as_facebook_pg_likebox_widget($args)
     $fm_header = get_option('as_facebook_pg_header');
 
     $fm_widget_page_name = get_option('as_facebook_pg_widget_page_name');
+	$fm_widget_small_header = get_option('as_facebook_pg_widget_small_header');
     $fm_widget_stream = get_option('as_facebook_pg_widget_stream');
 	$fm_widget_header = get_option('as_facebook_pg_widget_header');
-    $fm_widget_color_scheme = get_option('as_facebook_pg_widget_color_scheme');
+    //$fm_widget_color_scheme = get_option('as_facebook_pg_widget_color_scheme');
     $fm_widget_faces = get_option('as_facebook_pg_widget_faces');
     $fm_widget_title = get_option('as_facebook_pg_widget_title');
     $fm_widget_width = get_option('as_facebook_pg_widget_width');
@@ -251,19 +260,18 @@ function show_as_facebook_pg_likebox_widget($args)
     $subtract1 = 2;
     $mywidth = $fm_widget_width - $subtract1;
     $myheight = $fm_widget_height - $subtract1;
-    $border_start = '<div id="likeboxwrap" style="width:' . $mywidth . 'px; height:' . $myheight . 'px; background: #' . $fm_widget_color_scheme . '; border:1px solid #' . $fm_widget_border_color . '; overflow:hidden; text-align:center; margin:0 auto;">';
+    $border_start = '<div id="likeboxwrap" style="width:' . $mywidth . 'px; height:' . $myheight . 'px; border:1px solid #' . $fm_widget_border_color . '; overflow:hidden; text-align:center; margin:0 auto;">';
 
     $show_sponser1 = get_option('as_fbpage_show_sponser_link');
 
     if ($show_sponser1 == 1) {
         $sponserlink_profile = "";
     } else {
-        $sponserlink_profile = '<div align="center">- <a href="http://Medust.com/" title="Facebook Page WordPress Plugin" target="_blank"> <font size="1">' . 'Facebook Page WordPress Plugin' . '</font></a></div>';
+        $sponserlink_profile = '<div align="center">- <a href="http://www.medust.com/" title="Facebook Page WordPress Plugin" target="_blank"> <font size="1">' . 'Facebook Page WordPress Plugin' . '</font></a></div>';
     }
 
-    //$T2 = '<div id="likebox-frame"><iframe src="//www.facebook.com/plugins/likebox.php?href=https%3A%2F%2Fwww.facebook.com%2F' . $fm_widget_page_name . '&amp;width=' . $fm_widget_width . '&amp;height=' . $fm_widget_height . '&amp;colorscheme=light&amp;show_faces=' . $fm_widget_faces . '&amp;stream=' . $fm_widget_stream . '&amp;show_border=false&amp;header=false" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:' . $fm_widget_width . 'px; height:' . $fm_widget_height . 'px; margin:-1px;" allowTransparency="true"></iframe></div>';
-	$T2 = '<div class="fb-page" data-href="https://www.facebook.com/' . $fm_widget_page_name . '" data-width="' . $fm_widget_width . '" data-height="' . $fm_widget_height . '" data-hide-cover="' . $fm_widget_header . '" data-show-facepile="' . $fm_widget_faces . '" data-show-posts="' . $fm_widget_stream . '"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/' . $fm_widget_page_name . '"><a href="https://www.facebook.com/' . $fm_widget_page_name . '">Facebook</a></blockquote></div></div>';
-
+	$T2 = '<div class="fb-page" data-href="https://www.facebook.com/' . $fm_widget_page_name . '" data-width="' . $fm_widget_width . '" data-height="' . $fm_widget_height . '" data-small-header="' . $fm_widget_small_header .'" data-adapt-container-width="true" data-hide-cover="' . $fm_widget_header . '" data-show-facepile="' . $fm_widget_faces . '" data-show-posts="' . $fm_widget_stream . '"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/' . $fm_widget_page_name . '"><a href="https://www.facebook.com/' . $fm_widget_page_name . '">Facebook Page Plugin</a></blockquote></div></div>';
+	
     $border_end = '</div>';
 
 	if (!($fm_appid == "")) {

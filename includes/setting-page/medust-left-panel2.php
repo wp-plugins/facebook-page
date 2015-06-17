@@ -9,7 +9,7 @@
 	<div class="medust">
 		<h3>
 			Option Panel to include Likebox into your Post/Page (<a
-				href="http://wordpress.org/plugins/facebook-members/faq/"
+				href="http://wordpress.org/plugins/facebook-page/faq/"
 				target="_blank">Code</a>)
 		</h3>
 
@@ -36,6 +36,16 @@
 					<th scope="row" style="width: 29%;"><label>Like Box Height</label></th>
 					<td><textarea id="styled" name="as_facebook_pg_height" cols="18"
 							rows="1"><?php echo get_option('as_facebook_pg_height'); ?></textarea></td>
+				</tr>
+                <tr valign="top">
+					<th scope="row"><label>Small Header?</label></th>
+					<td><input name="as_facebook_pg_small_header" type="radio" value="true"
+						<?php checked('true', $as_facebook_pg_small_header); ?> /> &nbsp;YES (default) <input
+						name="as_facebook_pg_small_header" type="radio" value="false"
+						<?php checked('false', $as_facebook_pg_small_header); ?> />
+                    &nbsp;NO 
+                    &nbsp;<?=$fb_showsmheader?>
+                </td>
 				</tr>
 				<tr valign="top">
 					<th scope="row"><label>Hide Cover?</label></th>
@@ -66,7 +76,7 @@
 						value="false" <?php checked('false', $as_facebook_pg_faces); ?> />
 						&nbsp;NO</td>
 				</tr>
-				<tr valign="top" class="alternate">
+				<!--<tr valign="top" class="alternate">
 					<th scope="row"><label>Background Color</label></th>
 
 					<td><textarea id="styled" name="as_facebook_pg_color_scheme"
@@ -74,7 +84,7 @@
 						<br> Keep it blank for transparent background <br> <a
 						href="http://www.w3schools.com/html/html_colors.asp"
 						target="_blank">Color Codes (Do not put #)</a></td>
-				</tr>
+				</tr>-->
 
 				<tr valign="top">
 					<th scope="row" style="width: 29%;"><label>Border Color</label></th>

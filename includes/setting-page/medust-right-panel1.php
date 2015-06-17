@@ -7,7 +7,7 @@
 <br>
 <div id="side-info-column" class="inner-sidebar">
     <div class="postbox">
-        <h3 class="hndle"><span>Leanr Android Application Development</span></h3>
+        <h3 class="hndle"><span>Learn Android Application Development</span></h3>
 
         <div class="inside">
             <ul>
