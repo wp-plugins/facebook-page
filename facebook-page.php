@@ -3,7 +3,7 @@
 Plugin Name: Facebook Page
 Plugin URI: http://Medust.com/
 Description: The Simplest way to bring Facebook Page (New LikeBox by Facebook) functionality to WordPress with lot more Options. This plugin is based on Graph API v2.3
-Version: 1.1
+Version: 1.1.4
 Author: Medust
 Author URI: http://www.medust.com
 */
@@ -326,5 +326,5 @@ add_action('admin_menu', 'facebook_plugin_admin_init');
 add_filter('the_content', 'filter_as_facebook_pg_likebox');
 add_action('init', 'widget_as_facebook_pg_likebox_init');
 add_action('admin_menu', 'as_facebook_pg_add_option_page');
-add_action('wp_head', 'facebook_page_head');
+add_action('wp_footer', 'facebook_page_head');
 ?>

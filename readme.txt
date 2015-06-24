@@ -3,7 +3,7 @@ Contributors: medust
 Tags: Facebook, Facebook Page Plugin, Facebook Like Box, Facebook Widget, Facebook Page, Social Media, Like box, Facebook, Plugin, Facebook Plugin, Facebook Recommendation bar, Recommendation, medust, medust.com
 Requires at least: 3.7
 Tested up to: 4.2.2
-Stable tag: 1.1
+Stable tag: 1.1.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -73,6 +73,9 @@ Tags: facebook, facebook page, FB page, facebook plugin, page plugin, FB page pl
 
 == Changelog ==
 
+= 1.1.4 =
+* Conflicting with other plugin CSS like "SyntaxHighlighter Evolved" is fixed.
+
 = 1.1 =
 * New Small Header Feature Added to the plugin.
 * Background color field deleted.
@@ -81,6 +84,9 @@ Tags: facebook, facebook page, FB page, facebook plugin, page plugin, FB page pl
 * As this is the first version of this package, so there is no change.
 
 == Upgrade Notice ==
+
+= 1.1.4 =
+Conflicting with other plugin CSS like "SyntaxHighlighter Evolved" is fixed.
 
 = 1.1 =
 New Small Header Feature from Facebook is added to the plugin.
